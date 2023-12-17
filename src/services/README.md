@@ -1,59 +1,3 @@
-# PanoraSDK Typescript SDK 1.0.0
-The Typescript SDK for PanoraSDK.
-- API version: 1.0.0
-- SDK version: 1.0.0
-## Table of Contents
-- [About the API](#requirements)
-- [Installation](#installation)
-- [Authentication](#authentication)
-    - [Access Token](#access-token)
-- [API Endpoint Services](#api-endpoint-services)
-- [API Models](#api-models)
-- [Sample Usage](#sample-usage)
-- [PanoraSDK Services](#panorasdk-services)
-- [License](#license)
-## About the API
-The Panora API description
-## Installation
-```sh
-npm install panorasdk  
-```
-## Authentication
-To see whether an endpoint needs a specific type of authentication check the endpoint's documentation.
-### Access Token
-The PanoraSDK API uses access tokens as a form of authentication. You can set the access token when initializing the SDK through the constructor:
-```
-const sdk = new PanoraSDK('YOUR_ACCESS_TOKEN')
-```
-Or through the `setAccessToken` method:
-```
-const sdk = new PanoraSDK()
-sdk.setAccessToken('YOUR_ACCESS_TOKEN')
-```
-You can also set it for each service individually:
-```
-const sdk = new PanoraSDK()
-sdk.main.setAccessToken('YOUR_ACCESS_TOKEN')
-```
-## Sample Usage
-Here is a simple program demonstrating usage of this SDK. It can also be found in the `examples/src/index.ts` file in this directory.
-
-When running the sample make sure to use `npm install` to install all the dependencies.
-
-```Typescript
-import { PanoraSDK } from 'panorasdk';
-
-
-const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
-
-(async () => {
-  const result = await sdk.main
-    .appControllerGetHello();
-  console.log(result);
-})();
- 
-
-```
 # PanoraSDK Services
 A list of all services and services methods.
 - Services
@@ -1235,7 +1179,4 @@ const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
 
 
 
-
-## License
-License: MIT. See license in LICENSE.
 
