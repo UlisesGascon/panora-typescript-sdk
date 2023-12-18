@@ -1,0 +1,28 @@
+name: Revert Package Files Changes
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  revert-package-files:
+    if: startsWith(github.head_ref, 'liblab')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Fetch main branch and revert package files changes
+        run: |
+          git fetch origin main:main
+          git checkout main package.json package-lock.json
+          git commit -m "Revert changes to package files" package.json package-lock.json
+          git push
+
+      # Add additional steps if needed
