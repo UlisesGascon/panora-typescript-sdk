@@ -18,6 +18,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }} # Use PAT for checkout
 
       - name: Set up Git identity
         run: |
