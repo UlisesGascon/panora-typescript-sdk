@@ -18,11 +18,14 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Set up Git identity
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
       - name: Fetch main branch and revert package files changes
         run: |
           git fetch origin main:main
           git checkout main package.json package-lock.json
           git commit -m "Revert changes to package files" package.json package-lock.json
           git push
-
-      # Add additional steps if needed
