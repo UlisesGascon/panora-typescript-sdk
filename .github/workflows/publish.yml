@@ -37,7 +37,6 @@ jobs:
           version: npm run cversion
           commit: 'chore: new release'
           title: 'chore: new release candidate'
-
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
