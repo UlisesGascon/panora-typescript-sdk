@@ -11,7 +11,7 @@ import { serializeQuery, serializePath } from '../../http/QuerySerializer';
 
 export class CrmContactService extends BaseService {
   /**
-   * @summary Retrieve a batch of CRM Contacts
+   * @summary List a batch of CRM Contacts
 
    * @param integrationId Needed input variable
    * @param linkedUserId Needed input variable
