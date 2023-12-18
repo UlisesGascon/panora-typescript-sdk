@@ -27,7 +27,7 @@ jobs:
       - name: Fetch main branch and revert package files changes
         run: |
           git fetch origin main
-          git checkout main package.json package-lock.json
+          git checkout origin/main -- package.json package-lock.json
           git commit -m "Revert changes to package files" package.json package-lock.json
           git push origin HEAD:${{ github.head_ref }}
         env:
