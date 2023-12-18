@@ -1028,7 +1028,7 @@ import { PanoraSDK } from './src';
 const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
 
 (async () => {
-  const input = { data: {}, headers_: {}, method: 'POST', path: 'path' };
+  const input = { data: {}, headers_: {}, method: 'GET', path: 'path' };
   const result = await sdk.passthrough.passthroughRequest(input, 'integrationId', 'linkedUserId');
   console.log(result);
 })();
