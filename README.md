@@ -1,7 +1,6 @@
 # PanoraSDK Typescript SDK 1.0.0
 The Typescript SDK for PanoraSDK.
-- API version: 1.0.0
-- SDK version: 1.0.0
+
 ## Table of Contents
 - [About the API](#requirements)
 - [Installation](#installation)
