@@ -22,26 +22,26 @@ describe('test Connections', () => {
   describe('test handleOauthCallback', () => {
     test('test api call', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .get('/connections/oauth/callback?state=atque&code=culpa&location=officia')
+        .get('/connections/oauth/callback?state=reiciendis&code=voluptatem&location=architecto')
         .reply(200, { data: {} });
       return sdk.connections
-        .handleOauthCallback('atque', 'culpa', 'officia')
+        .handleOauthCallback('reiciendis', 'voluptatem', 'architecto')
         .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .get('/connections/oauth/callback?state=architecto&code=animi&location=sapiente')
+        .get('/connections/oauth/callback?state=at&code=odio&location=sequi')
         .reply(200, { data: {} });
       return expect(async () => await sdk.connections.handleOauthCallback()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .get('/connections/oauth/callback?state=at&code=fugit&location=dolorum')
+        .get('/connections/oauth/callback?state=rem&code=provident&location=ex')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.connections.handleOauthCallback('at', 'fugit', 'dolorum'),
+        async () => await sdk.connections.handleOauthCallback('rem', 'provident', 'ex'),
       ).rejects.toThrow();
     });
   });
