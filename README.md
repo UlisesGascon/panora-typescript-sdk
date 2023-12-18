@@ -1,4 +1,4 @@
-# PanoraSDK Typescript SDK 1.0.0
+# PanoraSDK Typescript SDK
 The Typescript SDK for PanoraSDK.
 
 ## Table of Contents
