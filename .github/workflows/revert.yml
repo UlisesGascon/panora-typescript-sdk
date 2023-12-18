@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Set up Git identity
         run: |
@@ -25,7 +26,9 @@ jobs:
 
       - name: Fetch main branch and revert package files changes
         run: |
-          git fetch origin main:main
+          git fetch origin main
           git checkout main package.json package-lock.json
           git commit -m "Revert changes to package files" package.json package-lock.json
-          git push
+          git push origin HEAD:${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
