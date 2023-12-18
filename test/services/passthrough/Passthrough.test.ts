@@ -22,26 +22,26 @@ describe('test Passthrough', () => {
   describe('test passthroughRequest', () => {
     test('test api call', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .post('/passthrough?integrationId=nemo&linkedUserId=vero')
+        .post('/passthrough?integrationId=enim&linkedUserId=aut')
         .reply(200, { data: {} });
       return sdk.passthrough
-        .passthroughRequest({}, 'nemo', 'vero')
+        .passthroughRequest({}, 'enim', 'aut')
         .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .post('/passthrough?integrationId=officiis&linkedUserId=commodi')
+        .post('/passthrough?integrationId=aut&linkedUserId=aut')
         .reply(200, { data: {} });
       return expect(async () => await sdk.passthrough.passthroughRequest()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .post('/passthrough?integrationId=ut&linkedUserId=tempora')
+        .post('/passthrough?integrationId=dolores&linkedUserId=odio')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.passthrough.passthroughRequest({}, 'ut', 'tempora'),
+        async () => await sdk.passthrough.passthroughRequest({}, 'dolores', 'odio'),
       ).rejects.toThrow();
     });
   });
