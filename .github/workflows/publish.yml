@@ -47,6 +47,9 @@ jobs:
           echo "Version is $VERSION"
           echo "::set-output name=version::$VERSION"
 
+      - name: Stage changes
+        run: git add package.json package-lock.json
+
       - name: Commit with version in message
         run: |
           git commit -m "chore: new release ${{ steps.extract_version.outputs.version }}"
