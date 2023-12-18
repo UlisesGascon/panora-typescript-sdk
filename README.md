@@ -1,6 +1,7 @@
-# PanoraSDK Typescript SDK
+# PanoraSDK Typescript SDK 1.0.0
 The Typescript SDK for PanoraSDK.
-
+- API version: 1.0.0
+- SDK version: 1.0.0
 ## Table of Contents
 - [About the API](#requirements)
 - [Installation](#installation)
@@ -1027,7 +1028,7 @@ import { PanoraSDK } from './src';
 const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
 
 (async () => {
-  const input = { data: {}, headers_: {}, method: 'GET', path: 'path' };
+  const input = { data: {}, headers_: {}, method: 'PATCH', path: 'path' };
   const result = await sdk.passthrough.passthroughRequest(input, 'integrationId', 'linkedUserId');
   console.log(result);
 })();
