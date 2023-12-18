@@ -130,4 +130,3 @@ dist
 .pnp.*
 
 .parcel-cache
-package-lock.json
