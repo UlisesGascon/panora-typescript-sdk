@@ -69,16 +69,16 @@ describe('test FieldMapping', () => {
   describe('test getCustomProviderProperties', () => {
     test('test api call', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .get('/field-mapping/properties?linkedUserId=numquam&providerId=4943103343')
+        .get('/field-mapping/properties?linkedUserId=esse&providerId=9942123162')
         .reply(200, { data: {} });
       return sdk.fieldMapping
-        .getCustomProviderProperties('numquam', '4943103343')
+        .getCustomProviderProperties('esse', '9942123162')
         .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .get('/field-mapping/properties?linkedUserId=aspernatur&providerId=1252690033')
+        .get('/field-mapping/properties?linkedUserId=tempora&providerId=2891453953')
         .reply(200, { data: {} });
       return expect(
         async () => await sdk.fieldMapping.getCustomProviderProperties(),
@@ -87,10 +87,10 @@ describe('test FieldMapping', () => {
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://api-demo.panora.dev')
-        .get('/field-mapping/properties?linkedUserId=nisi&providerId=1601720458')
+        .get('/field-mapping/properties?linkedUserId=harum&providerId=1777458428')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.fieldMapping.getCustomProviderProperties('nisi', '1601720458'),
+        async () => await sdk.fieldMapping.getCustomProviderProperties('harum', '1777458428'),
       ).rejects.toThrow();
     });
   });

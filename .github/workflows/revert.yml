@@ -1,0 +1,40 @@
+name: Adjust PR Files
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'README.md'
+      - '.github/workflows/release-checks.yml'
+
+jobs:
+  adjust-pr-files:
+    if: startsWith(github.head_ref, 'liblab')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Set up Git identity
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Fetch main branch and adjust files
+        run: |
+          git fetch origin main
+          git checkout origin/main -- package.json package-lock.json README.md
+          if [ -f ".github/workflows/release-checks.yml" ]; then
+            git rm .github/workflows/release-checks.yml
+          fi
+          git commit -m "Adjust PR files" package.json package-lock.json README.md .github/workflows/release-checks.yml
+          git push origin HEAD:${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
