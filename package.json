@@ -49,7 +49,7 @@
     "release": "changeset publish",
     "cversion": "changeset version"
   },
-  "name": "panorasdk",
+  "name": "@panora/typescript-sdk",
   "description": "PanoraSDK - The Panora API description",
   "version": "1.0.0",
   "author": "PanoraSDK",
