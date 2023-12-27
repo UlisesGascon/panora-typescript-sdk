@@ -59,7 +59,6 @@ When running the sample make sure to use `npm install` to install all the depend
 ```Typescript
 import { PanoraSDK } from '@panora/typescript-sdk';
 
-
 const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
 
 (async () => {
@@ -67,7 +66,6 @@ const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
     .appControllerGetHello();
   console.log(result);
 })();
- 
 
 ```
 
@@ -76,29 +74,17 @@ const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
 A list of all services and services methods.
 
 - Services
-
   - [Main](#main)
-
   - [Auth](#auth)
-
   - [Connections](#connections)
-
   - [Webhook](#webhook)
-
   - [LinkedUsers](#linkedusers)
-
   - [Organisations](#organisations)
-
   - [Projects](#projects)
-
   - [FieldMapping](#fieldmapping)
-
   - [Events](#events)
-
   - [MagicLink](#magiclink)
-
   - [Passthrough](#passthrough)
-
   - [CrmContact](#crmcontact)
 - [All Methods](#all-methods)
 
