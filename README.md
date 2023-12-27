@@ -32,20 +32,20 @@ To see whether an endpoint needs a specific type of authentication check the end
 
 The PanoraSDK API uses access tokens as a form of authentication. You can set the access token when initializing the SDK through the constructor:
 
-```
+```Typescript
 const sdk = new PanoraSDK('YOUR_ACCESS_TOKEN')
 ```
 
 Or through the `setAccessToken` method:
 
-```
+```Typescript
 const sdk = new PanoraSDK()
 sdk.setAccessToken('YOUR_ACCESS_TOKEN')
 ```
 
 You can also set it for each service individually:
 
-```
+```Typescript
 const sdk = new PanoraSDK()
 sdk.main.setAccessToken('YOUR_ACCESS_TOKEN')
 ```
