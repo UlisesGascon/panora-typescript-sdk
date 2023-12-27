@@ -1236,4 +1236,4 @@ const sdk = new PanoraSDK({ accessToken: process.env.PANORASDK_ACCESS_TOKEN });
 
 ## License
 
-License: MIT. See license in LICENSE.
+License: MIT. [See license in LICENSE](/LICENSE).
